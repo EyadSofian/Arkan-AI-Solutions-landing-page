@@ -1,0 +1,128 @@
+/* ============================================================================
+ * ARKAN AI SOLUTIONS — Design tokens
+ * Source of truth: Brand Identity Guide V2 · 2025 · Steel-Blue System
+ * Rules honoured here:
+ *  - #060912 (Navy 950) is the primary dark background
+ *  - #2563EB is reserved for CTAs / interactive accents — never body text
+ *  - #60A5FA is the accent for text/lines on dark; #2563EB on light
+ *  - Fraunces (display) · IBM Plex Sans Arabic (all text) · IBM Plex Mono (labels)
+ * ========================================================================== */
+
+:root,
+:root[data-theme="dark"] {
+  /* Surfaces */
+  --bg:            #060912;   /* Navy 950 — hero / page  */
+  --bg2:           #0A0F1E;   /* Navy 800 — alt sections */
+  --surface:       #0D1322;   /* Navy 900 — cards        */
+  --surface2:      #0F1628;   /* Navy 700 — raised       */
+
+  /* Text */
+  --text:          #D8E0F5;
+  --text2:         #9DABCC;
+  --text3:         #6E7D9E;
+
+  /* Lines */
+  --border:        rgba(200, 216, 248, 0.09);
+  --border-strong: rgba(200, 216, 248, 0.20);
+
+  /* Accent system */
+  --accent:        #2563EB;                    /* CTA fill            */
+  --accent-hover:  #3B82F6;                    /* CTA hover           */
+  --accent-ink:    #60A5FA;                    /* accent text on dark */
+  --accent-soft:   rgba(37, 99, 235, 0.12);    /* tinted fills        */
+  --accent-line:   rgba(96, 165, 250, 0.35);   /* tinted strokes      */
+  --accent-glow:   rgba(37, 99, 235, 0.18);    /* ambient (sparingly) */
+  --on-accent:     #FFFFFF;
+
+  /* Semantic */
+  --ok:            #34D399;
+  --ok-soft:       rgba(52, 211, 153, 0.12);
+  --err:           #F87171;
+  --err-soft:      rgba(248, 113, 113, 0.10);
+
+  /* Chrome */
+  --nav:           rgba(6, 9, 18, 0.78);
+  --nav-border:    rgba(200, 216, 248, 0.07);
+  --modal-o:       rgba(4, 6, 13, 0.82);
+
+  --shadow-1: 0 4px 16px rgba(2, 4, 10, 0.35);
+  --shadow-2: 0 12px 40px rgba(2, 4, 10, 0.5);
+  --shadow-3: 0 24px 64px rgba(2, 4, 10, 0.6);
+
+  /* Diagram node fills */
+  --node:          #0D1322;
+  --node-core:     #0F1A36;
+}
+
+:root[data-theme="light"] {
+  --bg:            #F4F6FA;   /* Slate 100 */
+  --bg2:           #EBEEF5;   /* Slate 200 */
+  --surface:       #FFFFFF;
+  --surface2:      #F4F6FA;
+
+  --text:          #0D1226;
+  --text2:         #42506B;
+  --text3:         #8A97B0;
+
+  --border:        #DDE2EE;
+  --border-strong: #C3CCE0;
+
+  --accent:        #2563EB;
+  --accent-hover:  #1D4ED8;
+  --accent-ink:    #2563EB;
+  --accent-soft:   #EFF6FF;
+  --accent-line:   #BFDBFE;
+  --accent-glow:   rgba(37, 99, 235, 0.10);
+  --on-accent:     #FFFFFF;
+
+  --ok:            #059669;
+  --ok-soft:       #ECFDF5;
+  --err:           #DC2626;
+  --err-soft:      #FEF2F2;
+
+  --nav:           rgba(244, 246, 250, 0.82);
+  --nav-border:    rgba(13, 18, 38, 0.07);
+  --modal-o:       rgba(13, 18, 38, 0.55);
+
+  --shadow-1: 0 4px 16px rgba(15, 23, 60, 0.07);
+  --shadow-2: 0 12px 40px rgba(15, 23, 60, 0.10);
+  --shadow-3: 0 24px 64px rgba(15, 23, 60, 0.14);
+
+  --node:          #FFFFFF;
+  --node-core:     #0D1322;
+}
+
+:root {
+  /* Type families — official three-font system.
+     Mono falls back to Plex Sans Arabic so Arabic glyphs inside mono labels
+     render in the brand Arabic face (Plex Mono has no Arabic). */
+  --serif:  "Fraunces", Georgia, "Times New Roman", serif;
+  --sans:   "IBM Plex Sans Arabic", "Segoe UI", -apple-system, sans-serif;
+  --mono:   "IBM Plex Mono", "IBM Plex Sans Arabic", ui-monospace, "Courier New", monospace;
+
+  /* Type scale (fluid) */
+  --fs-display: clamp(2.6rem, 7.2vw, 5.4rem);    /* hero H1            */
+  --fs-h2:      clamp(1.9rem, 4.4vw, 3.25rem);   /* section titles     */
+  --fs-h3:      clamp(1.25rem, 2.2vw, 1.6rem);   /* card titles        */
+  --fs-lead:    clamp(1.02rem, 1.6vw, 1.22rem);  /* lede paragraphs    */
+  --fs-body:    0.98rem;
+  --fs-small:   0.85rem;
+  --fs-label:   0.685rem;                        /* mono caps labels   */
+
+  /* Geometry — guide curvature: cards 12, soft elements 8–10, pills */
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   20px;
+  --r-pill: 999px;
+
+  /* Layout rhythm (4px base) */
+  --container: 1180px;
+  --pad-x:     clamp(20px, 4vw, 48px);
+  --sect-y:    clamp(84px, 10vw, 144px);
+
+  /* Motion */
+  --ease:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1:  0.18s;
+  --dur-2:  0.45s;
+  --dur-3:  0.8s;
+}

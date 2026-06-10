@@ -1,25 +1,10 @@
-# Dependencies
-node_modules/
-.pnp
-.pnp.js
-
-# Build output
-dist/
-dist-ssr/
-*.local
-
-# Editor
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Env
+node_modules
+dist
+.claude
 .env
-.env.local
-.env.production
+.env.*
+!.env.example
+npm-debug.log*
+.DS_Store
+Thumbs.db
+*.local

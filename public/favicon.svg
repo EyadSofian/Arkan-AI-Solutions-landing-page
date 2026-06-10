@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
-  <rect width="96" height="96" rx="14" fill="#0A0D14"/>
-  <g transform="translate(8, 4)">
-    <circle cx="40" cy="20" r="5" fill="#E5B864"/>
-    <path d="M 14 38 Q 27 20, 40 24 Q 53 20, 66 38" stroke="#E5B864" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <rect x="11" y="38" width="7" height="46" rx="1.2" fill="#E8E3D8"/>
-    <rect x="36.5" y="30" width="7" height="54" rx="1.2" fill="#E8E3D8"/>
-    <rect x="62" y="38" width="7" height="46" rx="1.2" fill="#E8E3D8"/>
-    <rect x="7" y="84" width="66" height="3.5" rx="1.2" fill="#E8E3D8"/>
+  <rect width="96" height="96" rx="14" fill="#060D2E"/>
+  <rect x=".5" y=".5" width="95" height="95" rx="13.5" stroke="#3B82F6" stroke-width=".8" opacity=".6"/>
+  <g transform="translate(8,4)">
+    <circle cx="40" cy="20" r="5.5" fill="#3B82F6"/>
+    <circle cx="40" cy="20" r="9" fill="#3B82F6" opacity=".18"/>
+    <path d="M12 38 Q26 18,40 23 Q54 18,68 38" stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <rect x="10" y="38" width="7.5" height="46" rx="1.5" fill="#C8D8F8"/>
+    <rect x="36.5" y="29" width="7.5" height="55" rx="1.5" fill="#93C5FD"/>
+    <rect x="62.5" y="38" width="7.5" height="46" rx="1.5" fill="#C8D8F8"/>
+    <rect x="6" y="84" width="68" height="4" rx="1.5" fill="#BFDBFE"/>
   </g>
 </svg>

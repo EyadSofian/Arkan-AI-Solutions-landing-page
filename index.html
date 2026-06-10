@@ -1,45 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <!-- Theme color matches dark onyx by default; updates dynamically -->
+  <!-- Brand surfaces (Steel-Blue system V2) -->
   <meta name="theme-color" content="#060912" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#F4F6FA" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
 
-  <!-- Primary SEO -->
-  <title>Arkan AI Solutions — The pillars of intelligent automation</title>
-  <meta name="description" content="Arkan engineers the load-bearing AI infrastructure beneath modern enterprises across MENA. Agents, automation, integrations — built for production." />
-  <meta name="keywords" content="AI Solutions, Automation, n8n, Botpress, MENA, AI Agents, Workflow Automation, Custom AI, Enterprise AI, Cairo, Arabic AI" />
+  <!-- Primary SEO (Arabic default; React swaps on language change) -->
+  <title>أركان للحلول الذكية — أنظمة ذكاء اصطناعي وأتمتة للأعمال | مصر · السعودية · الإمارات</title>
+  <meta name="description" content="أركان تصمّم وتبني وتشغّل وكلاء ذكاء اصطناعي يتحدثون العربية، وأتمتة لسير العمل، وتكاملات تربط واتساب وأودو وشوبيفاي وأنظمتك في منظومة واحدة موثوقة. ابدأ بتقييم مجاني لأنظمتك." />
   <meta name="author" content="Arkan AI Solutions" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://arkan.ai/" />
+  <link rel="alternate" hreflang="ar" href="https://arkan.ai/" />
+  <link rel="alternate" hreflang="en" href="https://arkan.ai/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://arkan.ai/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Arkan AI Solutions — The pillars of intelligent automation" />
-  <meta property="og:description" content="Engineering load-bearing AI infrastructure beneath modern enterprises across MENA." />
+  <meta property="og:site_name" content="Arkan AI Solutions" />
+  <meta property="og:title" content="أركان للحلول الذكية — أنظمة ذكاء اصطناعي تقوم عليها أعمالك" />
+  <meta property="og:description" content="وكلاء ذكاء اصطناعي بالعربية، أتمتة لسير العمل، وتكاملات تربط أنظمتك في منظومة واحدة موثوقة — في مصر والسعودية والإمارات." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://arkan.ai" />
-  <meta property="og:image" content="/og-image.png" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta property="og:url" content="https://arkan.ai/" />
+  <meta property="og:image" content="https://arkan.ai/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ar_EG" />
+  <meta property="og:locale:alternate" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Arkan AI Solutions" />
-  <meta name="twitter:description" content="The pillars of intelligent automation. Built for MENA." />
-  <meta name="twitter:image" content="/og-image.png" />
+  <meta name="twitter:title" content="Arkan AI Solutions — أنظمة ذكاء اصطناعي تقوم عليها أعمالك" />
+  <meta name="twitter:description" content="Arabic-first AI agents, workflow automation & systems integration for MENA businesses." />
+  <meta name="twitter:image" content="https://arkan.ai/og-image.png" />
 
-  <!-- Performance: preconnect to Google Fonts -->
+  <!-- Fonts: official brand stack — Fraunces / IBM Plex Sans Arabic / IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- Initial inline style to prevent FOUC on dark theme -->
+  <!-- Boot: apply stored theme + language BEFORE first paint (no FOUC, no layout shift) -->
+  <script>
+    (function () {
+      try {
+        var qs = new URLSearchParams(location.search);
+        var lang = qs.get("lang") || localStorage.getItem("arkan-lang") || "ar";
+        if (lang !== "en") lang = "ar";
+        var theme = localStorage.getItem("arkan-theme");
+        if (theme !== "light" && theme !== "dark") theme = "dark"; /* brand default */
+        var d = document.documentElement;
+        d.setAttribute("lang", lang);
+        d.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+        d.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Inline guard so the very first frame is on-brand -->
   <style>
     html { background: #060912; }
     html[data-theme="light"] { background: #F4F6FA; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { margin: 0; }
   </style>
+
+  <!-- Structured data: organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Arkan AI Solutions",
+    "alternateName": "أركان للحلول الذكية",
+    "url": "https://arkan.ai/",
+    "logo": "https://arkan.ai/favicon.svg",
+    "image": "https://arkan.ai/og-image.png",
+    "description": "Arabic-first AI agents, workflow automation, custom AI and systems integration — designed, built and operated in production for businesses across Egypt, Saudi Arabia and the UAE.",
+    "areaServed": [
+      { "@type": "Country", "name": "Egypt" },
+      { "@type": "Country", "name": "Saudi Arabia" },
+      { "@type": "Country", "name": "United Arab Emirates" }
+    ],
+    "knowsLanguage": ["ar", "en"],
+    "email": "hello@arkan.ai",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "hello@arkan.ai",
+      "availableLanguage": ["Arabic", "English"]
+    },
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arabic-first AI Agents" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workflow Automation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Solutions" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Systems Integration" } }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>
