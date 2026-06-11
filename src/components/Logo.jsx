@@ -1,49 +1,74 @@
-// Official Arkan mark — Brand Identity Guide V2 (Steel-Blue), exact geometry.
+// Arkan mark — "Atelier" system.
+// أركان = the pillars a structure stands on. The mark is four rising columns
+// on a baseline; the tallest (the keystone) carries the clay accent.
+// Everything else uses currentColor so the lockup adapts to its surface.
 
-export function ArkanMark({ size = 36 }) {
+import { useI18n } from "../lib/i18n.jsx";
+
+export function ArkanMark({ size = 34 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 96 96" fill="none" aria-hidden="true" focusable="false">
-      <rect width="96" height="96" rx="14" fill="#060D2E" />
-      <rect x=".5" y=".5" width="95" height="95" rx="13.5" stroke="#3B82F6" strokeWidth=".8" opacity=".6" />
-      <g transform="translate(8,4)">
-        <circle cx="40" cy="20" r="5.5" fill="#3B82F6" />
-        <circle cx="40" cy="20" r="9" fill="#3B82F6" opacity=".18" />
-        <path d="M12 38 Q26 18,40 23 Q54 18,68 38" stroke="#3B82F6" strokeWidth="2.2" strokeLinecap="round" fill="none" />
-        <rect x="10" y="38" width="7.5" height="46" rx="1.5" fill="#C8D8F8" />
-        <rect x="36.5" y="29" width="7.5" height="55" rx="1.5" fill="#93C5FD" />
-        <rect x="62.5" y="38" width="7.5" height="46" rx="1.5" fill="#C8D8F8" />
-        <rect x="6" y="84" width="68" height="4" rx="1.5" fill="#BFDBFE" />
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      style={{ display: "block" }}
+    >
+      {/* registration corners — the blueprint motif */}
+      <g stroke="currentColor" strokeWidth="1.4" opacity="0.32" strokeLinecap="round">
+        <path d="M2 6 V2 H6" />
+        <path d="M34 2 H38 V6" />
+        <path d="M38 34 V38 H34" />
+        <path d="M6 38 H2 V34" />
       </g>
+      {/* four pillars (الأركان), rising left→right */}
+      <g>
+        <rect x="9"  y="22" width="3.4" height="10" rx="1.2" fill="currentColor" />
+        <rect x="15" y="17" width="3.4" height="15" rx="1.2" fill="currentColor" />
+        <rect x="21" y="12" width="3.4" height="20" rx="1.2" fill="currentColor" opacity="0.78" />
+        <rect x="27" y="7"  width="3.4" height="25" rx="1.2" fill="var(--accent)" />
+      </g>
+      {/* baseline */}
+      <rect x="8" y="32.5" width="24" height="2" rx="1" fill="currentColor" />
     </svg>
   );
 }
 
-export function LogoLockup({ size = 34 }) {
+export function LogoLockup({ size = 34, tone = "ink" }) {
+  const { lang } = useI18n();
+  const isAr = lang === "ar";
+  const color = tone === "band" ? "var(--band-ink)" : "var(--ink)";
+  const subColor = tone === "band" ? "var(--band-faint)" : "var(--text-muted)";
+
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", gap: 11 }}>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 11, color }}>
       <ArkanMark size={size} />
       <span style={{ display: "inline-flex", flexDirection: "column", lineHeight: 1 }}>
         <span
           style={{
-            fontFamily: "var(--serif)",
-            fontWeight: 400,
-            fontSize: size * 0.55,
-            letterSpacing: "-0.01em",
-            color: "var(--text)",
+            fontFamily: isAr ? "var(--ar-display)" : "var(--en-display)",
+            fontWeight: 600,
+            fontSize: size * 0.56,
+            letterSpacing: isAr ? "0" : "-0.02em",
+            color,
           }}
         >
-          Arkan
+          {isAr ? "أركان" : "Arkan"}
         </span>
         <span
           style={{
-            fontFamily: "var(--mono)",
-            fontSize: Math.max(7, size * 0.22),
-            letterSpacing: "0.3em",
-            color: "var(--accent-ink)",
-            marginTop: 3,
+            fontFamily: isAr ? "var(--ar-text)" : "var(--mono)",
+            fontSize: Math.max(7.5, size * 0.2),
+            letterSpacing: isAr ? "0" : "0.22em",
+            textTransform: isAr ? "none" : "uppercase",
+            color: subColor,
+            marginTop: 4,
+            fontWeight: 500,
           }}
         >
-          AI · SOLUTIONS
+          {isAr ? "أنظمة ذكية" : "AI Systems"}
         </span>
       </span>
     </span>

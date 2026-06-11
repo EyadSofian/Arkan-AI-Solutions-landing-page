@@ -4,12 +4,12 @@
 
 export const en = {
   meta: {
-    title: "Arkan AI Solutions — AI agents, automation & systems integration for MENA businesses",
+    title: "Arkan AI Solutions — the structure your operations run on",
     description:
-      "Arkan designs, builds and operates Arabic-first AI agents, workflow automation and integrations that connect WhatsApp, Odoo, Shopify and your CRM into one dependable operation. Start with a free systems assessment.",
-    ogTitle: "Arkan AI Solutions — AI systems your business can stand on",
+      "Arkan builds the AI systems your operations run on: Arabic-first agents, dependable automation and integrations that connect WhatsApp, Odoo, Shopify and your CRM into one operation that works in production. Start with a systems assessment.",
+    ogTitle: "Arkan AI Solutions — the structure your operations run on",
     ogDescription:
-      "Arabic-first AI agents, workflow automation and systems integration — designed, built and operated in production across Egypt, Saudi Arabia and the UAE.",
+      "Arabic-first AI systems, automation and integration — designed, built and operated in production across Egypt, Saudi Arabia and the UAE.",
   },
 
   nav: {
@@ -20,7 +20,7 @@ export const en = {
       { id: "process", label: "Process" },
       { id: "faq", label: "FAQ" },
     ],
-    cta: "Book an assessment",
+    cta: "Request an assessment",
     menuOpen: "Open menu",
     menuClose: "Close menu",
     themeToggle: "Toggle color theme",
@@ -30,11 +30,11 @@ export const en = {
   },
 
   hero: {
-    eyebrow: "AI systems & automation partner · Egypt — Saudi Arabia — UAE",
-    h1Pre: "AI systems your business",
-    h1Em: "can stand on.",
-    sub: "Arkan designs, builds and operates Arabic-first AI agents, workflow automation and integrations that connect WhatsApp, Odoo, Shopify and your CRM into one dependable operation — faster customer response, fewer manual hours.",
-    ctaPrimary: "Book a free systems assessment",
+    eyebrow: "Arabic-first AI systems · Egypt · Saudi Arabia · UAE",
+    h1Pre: "The structure your operations",
+    h1Em: "run on.",
+    sub: "Arkan designs, builds and operates Arabic-first AI agents, dependable automation and the integrations that connect your tools — WhatsApp, Odoo, Shopify, your CRM — into one operation that holds together in production.",
+    ctaPrimary: "Request a systems assessment",
     ctaSecondary: "See how a system works",
     proofTitle: "Running in production today",
     proof: [
@@ -43,6 +43,11 @@ export const en = {
       { num: "8", label: "platforms integrated and in active use" },
       { num: "AR · EN", label: "bilingual by design, dialects included" },
     ],
+  },
+
+  trust: {
+    line: "We build inside the systems you already run",
+    items: ["Odoo", "Shopify", "WhatsApp Business", "n8n", "Chatwoot", "Botpress", "Salla · Zid", "HubSpot"],
   },
 
   diagram: {
@@ -360,9 +365,9 @@ export const en = {
 
   finalCta: {
     label: "08 — Next step",
-    title: "Start with a free systems assessment.",
+    title: "Start with a systems assessment.",
     sub: "Thirty minutes with a solutions architect: we map your operation, identify the fastest automation win with a real return, and tell you honestly if AI isn't the sensible option yet.",
-    cta: "Book the free assessment",
+    cta: "Request a systems assessment",
     reassure: "No commitment — and no budget questions.",
     altWhatsApp: "Message us on WhatsApp",
     altEmail: "Email us",
@@ -370,7 +375,7 @@ export const en = {
   },
 
   form: {
-    title: "Book your free systems assessment",
+    title: "Request your systems assessment",
     sub: "Three short steps — under two minutes.",
     stepLabel: (n, total) => `Step ${n} of ${total}`,
     back: "Back",

@@ -5,14 +5,14 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <!-- Brand surfaces (Steel-Blue system V2) -->
-  <meta name="theme-color" content="#060912" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#F4F6FA" media="(prefers-color-scheme: light)" />
-  <meta name="color-scheme" content="dark light" />
+  <!-- Brand surfaces (Atelier system — warm paper / warm ink) -->
+  <meta name="theme-color" content="#F4F1E9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#15130D" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
 
   <!-- Primary SEO (Arabic default; React swaps on language change) -->
-  <title>أركان للحلول الذكية — أنظمة ذكاء اصطناعي وأتمتة للأعمال | مصر · السعودية · الإمارات</title>
-  <meta name="description" content="أركان تصمّم وتبني وتشغّل وكلاء ذكاء اصطناعي يتحدثون العربية، وأتمتة لسير العمل، وتكاملات تربط واتساب وأودو وشوبيفاي وأنظمتك في منظومة واحدة موثوقة. ابدأ بتقييم مجاني لأنظمتك." />
+  <title>أركان للحلول الذكية — البنية التي تقوم عليها عملياتك | أنظمة ذكاء اصطناعي للأعمال</title>
+  <meta name="description" content="أركان تبني أنظمة الذكاء الاصطناعي التي تقوم عليها العمليات: وكلاء يتحدثون العربية، أتمتة موثوقة، وتكاملات تربط واتساب وأودو وشوبيفاي وأنظمتك في منظومة واحدة تعمل في الإنتاج. ابدأ بتقييم لأنظمتك." />
   <meta name="author" content="Arkan AI Solutions" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://arkan.ai/" />
@@ -22,8 +22,8 @@
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="Arkan AI Solutions" />
-  <meta property="og:title" content="أركان للحلول الذكية — أنظمة ذكاء اصطناعي تقوم عليها أعمالك" />
-  <meta property="og:description" content="وكلاء ذكاء اصطناعي بالعربية، أتمتة لسير العمل، وتكاملات تربط أنظمتك في منظومة واحدة موثوقة — في مصر والسعودية والإمارات." />
+  <meta property="og:title" content="أركان للحلول الذكية — البنية التي تقوم عليها عملياتك" />
+  <meta property="og:description" content="أنظمة ذكاء اصطناعي عربية أولاً، أتمتة وتكامل — مصممة ومبنية ومُشغّلة في الإنتاج عبر مصر والسعودية والإمارات." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://arkan.ai/" />
   <meta property="og:image" content="https://arkan.ai/og-image.png" />
@@ -34,16 +34,19 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Arkan AI Solutions — أنظمة ذكاء اصطناعي تقوم عليها أعمالك" />
-  <meta name="twitter:description" content="Arabic-first AI agents, workflow automation & systems integration for MENA businesses." />
+  <meta name="twitter:title" content="Arkan AI Solutions — the structure your operations run on" />
+  <meta name="twitter:description" content="Arabic-first AI systems, automation & integration — designed, built and operated in production across MENA." />
   <meta name="twitter:image" content="https://arkan.ai/og-image.png" />
 
-  <!-- Fonts: official brand stack — Fraunces / IBM Plex Sans Arabic / IBM Plex Mono -->
+  <!-- Fonts: Atelier dual-script stack.
+       EN  Bricolage Grotesque (display) · Inter (text/UI/numerals)
+       AR  Reem Kufi (display) · Readex Pro (text/UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Inter:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Boot: apply stored theme + language BEFORE first paint (no FOUC, no layout shift) -->
+  <!-- Boot: apply stored theme + language BEFORE first paint (no FOUC, no shift).
+       Brand default is LIGHT (the warm-paper identity). -->
   <script>
     (function () {
       try {
@@ -51,7 +54,7 @@
         var lang = qs.get("lang") || localStorage.getItem("arkan-lang") || "ar";
         if (lang !== "en") lang = "ar";
         var theme = localStorage.getItem("arkan-theme");
-        if (theme !== "light" && theme !== "dark") theme = "dark"; /* brand default */
+        if (theme !== "light" && theme !== "dark") theme = "light"; /* brand default */
         var d = document.documentElement;
         d.setAttribute("lang", lang);
         d.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
@@ -62,8 +65,8 @@
 
   <!-- Inline guard so the very first frame is on-brand -->
   <style>
-    html { background: #060912; }
-    html[data-theme="light"] { background: #F4F6FA; }
+    html { background: #F4F1E9; }
+    html[data-theme="dark"] { background: #15130D; }
     body { margin: 0; }
   </style>
 
@@ -77,6 +80,7 @@
     "url": "https://arkan.ai/",
     "logo": "https://arkan.ai/favicon.svg",
     "image": "https://arkan.ai/og-image.png",
+    "slogan": "The structure your operations run on.",
     "description": "Arabic-first AI agents, workflow automation, custom AI and systems integration — designed, built and operated in production for businesses across Egypt, Saudi Arabia and the UAE.",
     "areaServed": [
       { "@type": "Country", "name": "Egypt" },

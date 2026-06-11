@@ -1,13 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
-  <rect width="96" height="96" rx="14" fill="#060D2E"/>
-  <rect x=".5" y=".5" width="95" height="95" rx="13.5" stroke="#3B82F6" stroke-width=".8" opacity=".6"/>
-  <g transform="translate(8,4)">
-    <circle cx="40" cy="20" r="5.5" fill="#3B82F6"/>
-    <circle cx="40" cy="20" r="9" fill="#3B82F6" opacity=".18"/>
-    <path d="M12 38 Q26 18,40 23 Q54 18,68 38" stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-    <rect x="10" y="38" width="7.5" height="46" rx="1.5" fill="#C8D8F8"/>
-    <rect x="36.5" y="29" width="7.5" height="55" rx="1.5" fill="#93C5FD"/>
-    <rect x="62.5" y="38" width="7.5" height="46" rx="1.5" fill="#C8D8F8"/>
-    <rect x="6" y="84" width="68" height="4" rx="1.5" fill="#BFDBFE"/>
+  <rect width="96" height="96" rx="18" fill="#F4F1E9"/>
+  <rect x="1" y="1" width="94" height="94" rx="17" stroke="#1C1A14" stroke-width="1.5" opacity="0.12"/>
+  <!-- registration corners -->
+  <g stroke="#1C1A14" stroke-width="2.4" opacity="0.28" stroke-linecap="round">
+    <path d="M14 24 V14 H24"/>
+    <path d="M82 14 H92 V24" transform="translate(-10,0)"/>
+    <path d="M72 82 V92 H62"/>
+    <path d="M24 92 H14 V82"/>
   </g>
+  <!-- four pillars (الأركان), rising; clay keystone -->
+  <rect x="26" y="48" width="7" height="22" rx="2.4" fill="#1C1A14"/>
+  <rect x="39" y="38" width="7" height="32" rx="2.4" fill="#1C1A14"/>
+  <rect x="52" y="28" width="7" height="42" rx="2.4" fill="#1C1A14" opacity="0.78"/>
+  <rect x="65" y="16" width="7" height="54" rx="2.4" fill="#B5532B"/>
+  <!-- baseline -->
+  <rect x="24" y="70" width="50" height="4.5" rx="2" fill="#1C1A14"/>
 </svg>

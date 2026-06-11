@@ -13,50 +13,46 @@ export function Footer() {
   };
 
   return (
-    <footer className="footer">
-      <div className="container">
+    <footer className="band footer">
+      <div className="container container--wide">
         <div className="footer__grid">
-          <div className="footer__col">
-            <LogoLockup size={44} />
-            <p className="t-body" style={{ maxWidth: 320, marginTop: 20 }}>{f.tagline}</p>
+          <div className="footer__col footer__col--brand">
+            <LogoLockup size={40} tone="band" />
+            <p className="footer__tag">{f.tagline}</p>
           </div>
 
           <nav className="footer__col" aria-label={f.colPillars}>
-            <h3 className="t-label">{f.colPillars}</h3>
+            <h4>{f.colPillars}</h4>
             <ul>
               {f.pillars.map((p) => (
-                <li key={p}>
-                  <a href="#solutions" onClick={go("solutions")}>{p}</a>
-                </li>
+                <li key={p}><a href="#solutions" onClick={go("solutions")}>{p}</a></li>
               ))}
             </ul>
           </nav>
 
           <nav className="footer__col" aria-label={f.colCompany}>
-            <h3 className="t-label">{f.colCompany}</h3>
+            <h4>{f.colCompany}</h4>
             <ul>
               {f.company.map((l) => (
-                <li key={l.id}>
-                  <a href={`#${l.id}`} onClick={go(l.id)}>{l.label}</a>
-                </li>
+                <li key={l.id}><a href={`#${l.id}`} onClick={go(l.id)}>{l.label}</a></li>
               ))}
             </ul>
           </nav>
 
           <div className="footer__col">
-            <h3 className="t-label">{f.colContact}</h3>
+            <h4>{f.colContact}</h4>
             <ul>
               <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li><a href={waLink()} target="_blank" rel="noopener noreferrer">{f.whatsapp}</a></li>
               <li><a href={SITE.calendar} target="_blank" rel="noopener noreferrer">{f.calendar}</a></li>
-              <li><span className="t-small">{f.locations}</span></li>
+              <li>{f.locations}</li>
             </ul>
           </div>
         </div>
 
-        <div className="footer__bar">
-          <span className="t-small">© {year} Arkan AI Solutions · {f.rights}</span>
-          <span className="t-small">{f.made}</span>
+        <div className="footer__bottom">
+          <span>© {year} Arkan AI Solutions · {f.rights}</span>
+          <span>{f.made}</span>
         </div>
       </div>
     </footer>

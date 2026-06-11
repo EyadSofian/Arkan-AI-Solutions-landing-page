@@ -1,78 +1,90 @@
 import { m } from "motion/react";
 import { useI18n } from "../lib/i18n.jsx";
 import { track } from "../lib/analytics.js";
-import { Icon } from "../components/ui/Icon.jsx";
 import { SystemDiagram } from "../components/SystemDiagram.jsx";
-import { fadeUp, stagger, child } from "../lib/motion.js";
+import { fadeUp, stagger, child, EASE } from "../lib/motion.js";
 
 export function Hero({ onBook }) {
   const { t } = useI18n();
   const h = t.hero;
 
-  const goHow = () => {
-    track("cta_click", { id: "hero-secondary" });
-    document.getElementById("how")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollTo = (id) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
-      <div className="hero__grid" aria-hidden="true" />
-      <div className="container">
-        <div className="hero__inner">
-          {/* Copy column */}
-          <div>
-            <m.p className="eyebrow-pill" variants={fadeUp} initial="hidden" animate="show" custom={0.05}>
-              <span className="dot" aria-hidden="true" />
+      <div className="hero__bg" aria-hidden="true" />
+      <div className="container container--wide">
+        <div className="hero__grid">
+          <m.div className="hero__copy" variants={stagger(0.1, 0.05)} initial="hidden" animate="show">
+            <m.div className="hero__eyebrow" variants={child}>
+              <span className="dot-live" aria-hidden="true" />
               {h.eyebrow}
-            </m.p>
+            </m.div>
 
-            <m.h1 className="t-display" id="hero-title" variants={fadeUp} initial="hidden" animate="show" custom={0.16}>
-              {h.h1Pre} <em>{h.h1Em}</em>
+            <m.h1 className="t-display hero__title" id="hero-title" variants={child}>
+              {h.h1Pre} <span className="em">{h.h1Em}</span>
             </m.h1>
 
-            <m.p className="t-lead hero__sub" variants={fadeUp} initial="hidden" animate="show" custom={0.3}>
-              {h.sub}
-            </m.p>
+            <m.p className="t-lead hero__sub" variants={child}>{h.sub}</m.p>
 
-            <m.div className="hero__ctas" variants={fadeUp} initial="hidden" animate="show" custom={0.42}>
+            <m.div className="cta-row hero__cta" variants={child}>
               <button
                 type="button"
-                className="btn btn--primary"
-                onClick={() => {
-                  track("cta_click", { id: "hero-primary" });
-                  onBook("hero");
-                }}
+                className="btn btn--primary btn--lg"
+                onClick={() => { track("cta_click", { id: "hero-primary" }); onBook("hero"); }}
               >
                 {h.ctaPrimary}
-                <Icon name="arrowFwd" size={15} flip className="ic--fwd" />
               </button>
-              <button type="button" className="btn btn--ghost" onClick={goHow}>
+              <button
+                type="button"
+                className="btn btn--ghost btn--lg"
+                onClick={() => { track("cta_click", { id: "hero-secondary" }); scrollTo("how"); }}
+              >
                 {h.ctaSecondary}
               </button>
             </m.div>
+          </m.div>
 
-            <m.div
-              className="hero__proof"
-              variants={stagger(0.07, 0.65)}
-              initial="hidden"
-              animate="show"
-              role="list"
-              aria-label={h.proofTitle}
-            >
-              {h.proof.map((p) => (
-                <m.div key={p.label} variants={child} role="listitem">
-                  <div className="proof__num">{p.num}</div>
-                  <div className="t-small proof__lbl">{p.label}</div>
-                </m.div>
-              ))}
-            </m.div>
-          </div>
-
-          {/* Visual column */}
-          <m.div variants={fadeUp} initial="hidden" animate="show" custom={0.35}>
+          <m.div
+            className="hero__visual"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
+          >
             <SystemDiagram />
           </m.div>
         </div>
+
+        <m.div
+          className="hero__proof"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px 0px" }}
+        >
+          <div className="hero__proof-head">
+            <span className="dot-live" aria-hidden="true" />
+            <span className="t-label">{h.proofTitle}</span>
+          </div>
+          <m.div
+            className="hero__proof-grid"
+            variants={stagger(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            role="list"
+            aria-label={h.proofTitle}
+          >
+            {h.proof.map((p) => (
+              <m.div className="stat" key={p.label} variants={child} role="listitem">
+                <span className="stat__rule" aria-hidden="true" />
+                <span className="stat__num num">{p.num}</span>
+                <span className="stat__label">{p.label}</span>
+              </m.div>
+            ))}
+          </m.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,128 +1,201 @@
 /* ============================================================================
  * ARKAN AI SOLUTIONS — Design tokens
- * Source of truth: Brand Identity Guide V2 · 2025 · Steel-Blue System
- * Rules honoured here:
- *  - #060912 (Navy 950) is the primary dark background
- *  - #2563EB is reserved for CTAs / interactive accents — never body text
- *  - #60A5FA is the accent for text/lines on dark; #2563EB on light
- *  - Fraunces (display) · IBM Plex Sans Arabic (all text) · IBM Plex Mono (labels)
+ * System: "Atelier" — warm technical minimalism, 2026.
+ *
+ * Concept: أركان = the pillars a structure stands on. The identity is
+ * architectural — AI as the load-bearing structure a business runs on.
+ * Surfaces are warm paper, text is warm ink, one ownable clay accent does the
+ * pointing. Light is the default and the brand; dark is a faithful inversion.
+ *
+ * Type — dual-script, four families:
+ *   EN display  Bricolage Grotesque   (editorial grotesk, optical sizing)
+ *   EN text/UI  Inter                 (neutral, tabular numerals)
+ *   AR display  Reem Kufi             (geometric kufi — architectural rhythm)
+ *   AR text/UI  Readex Pro            (Arabic-first humanist, high readability)
+ *
+ * Rules honoured everywhere:
+ *  - No hardcoded hex in components — only these tokens.
+ *  - Clay (--accent) points and emphasises; it never carries body text.
+ *  - Numbers use tabular figures and the .num treatment, never browser default.
  * ========================================================================== */
 
 :root,
-:root[data-theme="dark"] {
-  /* Surfaces */
-  --bg:            #060912;   /* Navy 950 — hero / page  */
-  --bg2:           #0A0F1E;   /* Navy 800 — alt sections */
-  --surface:       #0D1322;   /* Navy 900 — cards        */
-  --surface2:      #0F1628;   /* Navy 700 — raised       */
+:root[data-theme="light"] {
+  /* ── Surfaces — warm paper ─────────────────────────────────────────────*/
+  --paper:        #F4F1E9;   /* page canvas (warm off-white)              */
+  --paper-2:      #EEEADF;   /* alternating sections, sunk wells          */
+  --surface:      #FBFAF5;   /* cards / panels                            */
+  --surface-2:    #FFFFFF;   /* raised: inputs, popovers, the live core   */
+  --paper-grid:   rgba(28, 26, 20, 0.045);  /* hairline blueprint grid    */
 
-  /* Text */
-  --text:          #D8E0F5;
-  --text2:         #9DABCC;
-  --text3:         #6E7D9E;
+  /* ── Ink — warm near-black text ────────────────────────────────────────*/
+  --ink:          #1C1A14;   /* headings, strongest text                  */
+  --text:         #36322A;   /* body                                      */
+  --text-muted:   #6C665A;   /* secondary                                 */
+  --text-faint:   #9A9384;   /* captions, disabled, meta                  */
 
-  /* Lines */
-  --border:        rgba(200, 216, 248, 0.09);
-  --border-strong: rgba(200, 216, 248, 0.20);
+  /* ── Lines ─────────────────────────────────────────────────────────────*/
+  --line:         #E3DCCD;   /* hairlines, card borders                   */
+  --line-strong:  #CFC6B4;   /* emphasised dividers, drawn structure      */
+  --line-faint:   #ECE6DA;   /* barely-there separators                   */
 
-  /* Accent system */
-  --accent:        #2563EB;                    /* CTA fill            */
-  --accent-hover:  #3B82F6;                    /* CTA hover           */
-  --accent-ink:    #60A5FA;                    /* accent text on dark */
-  --accent-soft:   rgba(37, 99, 235, 0.12);    /* tinted fills        */
-  --accent-line:   rgba(96, 165, 250, 0.35);   /* tinted strokes      */
-  --accent-glow:   rgba(37, 99, 235, 0.18);    /* ambient (sparingly) */
-  --on-accent:     #FFFFFF;
+  /* ── Clay — the single ownable accent ──────────────────────────────────*/
+  --accent:       #B5532B;   /* primary action, live state, key strokes   */
+  --accent-hover: #9C4523;   /* pressed / hover                           */
+  --accent-ink:   #9C4523;   /* clay used AS text (links) — passes AA     */
+  --accent-soft:  #F1E3D8;   /* tinted fills, chips                       */
+  --accent-line:  rgba(181, 83, 43, 0.34); /* tinted strokes             */
+  --on-accent:    #FFFFFF;   /* text on clay fill (≈5.8:1)                 */
 
-  /* Semantic */
-  --ok:            #34D399;
-  --ok-soft:       rgba(52, 211, 153, 0.12);
-  --err:           #F87171;
-  --err-soft:      rgba(248, 113, 113, 0.10);
+  /* ── Semantic ──────────────────────────────────────────────────────────*/
+  --ok:           #3F7A4F;
+  --ok-soft:      #E6EFE6;
+  --err:          #B23B30;
+  --err-soft:     #F6E4E1;
+  --warn:         #B07A1E;
 
-  /* Chrome */
-  --nav:           rgba(6, 9, 18, 0.78);
-  --nav-border:    rgba(200, 216, 248, 0.07);
-  --modal-o:       rgba(4, 6, 13, 0.82);
+  /* ── Always-dark editorial band (footer / final CTA in light mode) ─────*/
+  --band:         #1A1810;   /* warm charcoal ink band                    */
+  --band-2:       #232017;
+  --band-ink:     #F3EFE3;   /* text on band                              */
+  --band-text:    #BDB6A4;
+  --band-faint:   #7C7666;
+  --band-line:    rgba(243, 239, 227, 0.12);
 
-  --shadow-1: 0 4px 16px rgba(2, 4, 10, 0.35);
-  --shadow-2: 0 12px 40px rgba(2, 4, 10, 0.5);
-  --shadow-3: 0 24px 64px rgba(2, 4, 10, 0.6);
+  /* ── Chrome ────────────────────────────────────────────────────────────*/
+  --nav:          rgba(244, 241, 233, 0.78);
+  --nav-border:   rgba(28, 26, 20, 0.08);
+  --modal-o:      rgba(26, 24, 16, 0.42);
+  --focus:        #B5532B;   /* focus ring colour                         */
 
-  /* Diagram node fills */
-  --node:          #0D1322;
-  --node-core:     #0F1A36;
+  --shadow-1: 0 1px 2px rgba(40, 34, 20, 0.05), 0 4px 14px rgba(40, 34, 20, 0.05);
+  --shadow-2: 0 2px 6px rgba(40, 34, 20, 0.06), 0 18px 44px rgba(40, 34, 20, 0.10);
+  --shadow-3: 0 8px 20px rgba(40, 34, 20, 0.08), 0 36px 80px rgba(40, 34, 20, 0.16);
+
+  /* ── Diagram (operational structure) ───────────────────────────────────*/
+  --node:         #FBFAF5;
+  --node-ink:     #1C1A14;
+  --node-line:    #CFC6B4;
+  --flow:         #B5532B;   /* active routed flow                        */
+  --flow-idle:    #C9C0AE;   /* dormant / "before" connections           */
+
+  color-scheme: light;
 }
 
-:root[data-theme="light"] {
-  --bg:            #F4F6FA;   /* Slate 100 */
-  --bg2:           #EBEEF5;   /* Slate 200 */
-  --surface:       #FFFFFF;
-  --surface2:      #F4F6FA;
+:root[data-theme="dark"] {
+  /* Faithful inversion — warm charcoal "ink paper", same clay signature. */
+  --paper:        #15130D;
+  --paper-2:      #1B1810;
+  --surface:      #201D14;
+  --surface-2:    #262218;
+  --paper-grid:   rgba(243, 239, 227, 0.05);
 
-  --text:          #0D1226;
-  --text2:         #42506B;
-  --text3:         #8A97B0;
+  --ink:          #F3EFE3;
+  --text:         #DAD3C3;
+  --text-muted:   #A39C8A;
+  --text-faint:   #756E5E;
 
-  --border:        #DDE2EE;
-  --border-strong: #C3CCE0;
+  --line:         rgba(243, 239, 227, 0.11);
+  --line-strong:  rgba(243, 239, 227, 0.22);
+  --line-faint:   rgba(243, 239, 227, 0.06);
 
-  --accent:        #2563EB;
-  --accent-hover:  #1D4ED8;
-  --accent-ink:    #2563EB;
-  --accent-soft:   #EFF6FF;
-  --accent-line:   #BFDBFE;
-  --accent-glow:   rgba(37, 99, 235, 0.10);
-  --on-accent:     #FFFFFF;
+  --accent:       #D2723F;
+  --accent-hover: #E0824E;
+  --accent-ink:   #E59261;   /* clay text on dark — passes AA             */
+  --accent-soft:  rgba(210, 114, 63, 0.16);
+  --accent-line:  rgba(210, 114, 63, 0.40);
+  --on-accent:    #201D14;   /* dark ink on clay fill in dark mode        */
 
-  --ok:            #059669;
-  --ok-soft:       #ECFDF5;
-  --err:           #DC2626;
-  --err-soft:      #FEF2F2;
+  --ok:           #6BBE7E;
+  --ok-soft:      rgba(107, 190, 126, 0.14);
+  --err:          #E0837A;
+  --err-soft:     rgba(224, 131, 122, 0.13);
+  --warn:         #E0AE55;
 
-  --nav:           rgba(244, 246, 250, 0.82);
-  --nav-border:    rgba(13, 18, 38, 0.07);
-  --modal-o:       rgba(13, 18, 38, 0.55);
+  --band:         #100E09;
+  --band-2:       #181509;
+  --band-ink:     #F3EFE3;
+  --band-text:    #BDB6A4;
+  --band-faint:   #7C7666;
+  --band-line:    rgba(243, 239, 227, 0.10);
 
-  --shadow-1: 0 4px 16px rgba(15, 23, 60, 0.07);
-  --shadow-2: 0 12px 40px rgba(15, 23, 60, 0.10);
-  --shadow-3: 0 24px 64px rgba(15, 23, 60, 0.14);
+  --nav:          rgba(21, 19, 13, 0.74);
+  --nav-border:   rgba(243, 239, 227, 0.09);
+  --modal-o:      rgba(8, 7, 4, 0.74);
+  --focus:        #E0824E;
 
-  --node:          #FFFFFF;
-  --node-core:     #0D1322;
+  --shadow-1: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-3: 0 24px 64px rgba(0, 0, 0, 0.6);
+
+  --node:         #201D14;
+  --node-ink:     #F3EFE3;
+  --node-line:    rgba(243, 239, 227, 0.22);
+  --flow:         #D2723F;
+  --flow-idle:    rgba(243, 239, 227, 0.18);
+
+  color-scheme: dark;
 }
 
 :root {
-  /* Type families — official three-font system.
-     Mono falls back to Plex Sans Arabic so Arabic glyphs inside mono labels
-     render in the brand Arabic face (Plex Mono has no Arabic). */
-  --serif:  "Fraunces", Georgia, "Times New Roman", serif;
-  --sans:   "IBM Plex Sans Arabic", "Segoe UI", -apple-system, sans-serif;
-  --mono:   "IBM Plex Mono", "IBM Plex Sans Arabic", ui-monospace, "Courier New", monospace;
+  /* ── Type families ─────────────────────────────────────────────────────
+     The document carries dir; [dir=rtl] swaps display/text families below.
+     Mono is a system stack (zero network cost) for technical annotations.  */
+  --en-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --en-text:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ar-display: "Reem Kufi", "Readex Pro", "Segoe UI", sans-serif;
+  --ar-text:    "Readex Pro", "Segoe UI", system-ui, sans-serif;
+  --mono:       ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono",
+                Menlo, Consolas, monospace;
 
-  /* Type scale (fluid) */
-  --fs-display: clamp(2.6rem, 7.2vw, 5.4rem);    /* hero H1            */
-  --fs-h2:      clamp(1.9rem, 4.4vw, 3.25rem);   /* section titles     */
-  --fs-h3:      clamp(1.25rem, 2.2vw, 1.6rem);   /* card titles        */
-  --fs-lead:    clamp(1.02rem, 1.6vw, 1.22rem);  /* lede paragraphs    */
-  --fs-body:    0.98rem;
-  --fs-small:   0.85rem;
-  --fs-label:   0.685rem;                        /* mono caps labels   */
+  /* Resolved per direction (default LTR / English) */
+  --display: var(--en-display);
+  --text-font: var(--en-text);
 
-  /* Geometry — guide curvature: cards 12, soft elements 8–10, pills */
-  --r-sm:   8px;
-  --r-md:   12px;
-  --r-lg:   20px;
+  /* ── Type scale (fluid) ────────────────────────────────────────────────*/
+  --fs-display: clamp(2.7rem, 6.6vw, 5.1rem);   /* hero H1                 */
+  --fs-h1:      clamp(2.3rem, 5.2vw, 3.8rem);
+  --fs-h2:      clamp(1.85rem, 3.8vw, 2.9rem);   /* section titles         */
+  --fs-h3:      clamp(1.18rem, 2vw, 1.5rem);     /* card titles            */
+  --fs-lead:    clamp(1.06rem, 1.55vw, 1.3rem);  /* lede paragraphs        */
+  --fs-body:    1rem;
+  --fs-small:   0.875rem;
+  --fs-label:   0.7rem;                          /* mono caps labels       */
+  --fs-stat:    clamp(2rem, 4vw, 3.1rem);        /* metrics                */
+
+  --lh-tight:   1.06;
+  --lh-snug:    1.22;
+  --lh-body:    1.65;
+
+  /* ── Geometry — architectural / Swiss: low radii, sharp precision ──────*/
+  --r-xs:   3px;
+  --r-sm:   5px;
+  --r-md:   9px;
+  --r-lg:   16px;
   --r-pill: 999px;
 
-  /* Layout rhythm (4px base) */
-  --container: 1180px;
-  --pad-x:     clamp(20px, 4vw, 48px);
-  --sect-y:    clamp(84px, 10vw, 144px);
+  /* ── Layout rhythm (4px base) ──────────────────────────────────────────*/
+  --container: 1200px;
+  --container-wide: 1320px;
+  --pad-x:  clamp(20px, 4.5vw, 56px);
+  --sect-y: clamp(80px, 9vw, 140px);
+  --gut:    clamp(16px, 2vw, 28px);
 
-  /* Motion */
+  /* ── Motion ────────────────────────────────────────────────────────────*/
   --ease:   cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-1:  0.18s;
-  --dur-2:  0.45s;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-1:  0.16s;
+  --dur-2:  0.42s;
   --dur-3:  0.8s;
+}
+
+/* ── Arabic: swap families, size up ~12%, loosen line-height (research) ──*/
+:root[dir="rtl"] {
+  --display: var(--ar-display);
+  --text-font: var(--ar-text);
+  --fs-body: 1.06rem;
+  --fs-small: 0.92rem;
+  --lh-body: 1.85;
+  --lh-snug: 1.35;
+  --lh-tight: 1.16;
 }

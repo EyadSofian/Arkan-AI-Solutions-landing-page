@@ -1,39 +1,29 @@
 import { m } from "motion/react";
 import { useI18n } from "../lib/i18n.jsx";
 import { SectionHead } from "../components/ui/SectionHead.jsx";
+import { Icon } from "../components/ui/Icon.jsx";
 import { stagger, child, VIEW } from "../lib/motion.js";
 
 export function Process() {
   const { t, lang } = useI18n();
   const s = t.process;
+  const deliverableLabel = lang === "en" ? "Deliverable" : "المخرَج";
 
   return (
-    <section className="section section--line cv-auto" id="process" aria-labelledby="process-title">
-      <div className="container">
+    <section className="section" id="process" aria-labelledby="process-title">
+      <div className="container container--wide">
         <SectionHead id="process-title" label={s.label} title={s.title} lead={s.lead} />
-        <m.ol
-          className="proc-grid"
-          variants={stagger(0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={VIEW}
-          style={{ listStyle: "none" }}
-        >
-          {s.stages.map((st, i) => (
-            <m.li key={st.num} className="proc" variants={child}>
-              <div className="proc__rail" aria-hidden="true">
-                <span className="proc__dot">{st.num}</span>
-                {i < s.stages.length - 1 && <span className="proc__rail-line" />}
+        <m.ol className="process-grid" variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={VIEW} style={{ listStyle: "none" }}>
+          {s.stages.map((st) => (
+            <m.li key={st.num} className="stage" variants={child}>
+              <div className="stage__num num">{st.num}</div>
+              <h3 className="stage__name">{st.name}</h3>
+              <p className="stage__desc">{st.desc}</p>
+              <div className="stage__deliver">
+                <Icon name="check" size={15} strokeWidth={2.5} />
+                <span><strong style={{ color: "var(--ink)", fontWeight: 600 }}>{deliverableLabel}:</strong> {st.deliverable}</span>
               </div>
-              <h3 className="t-h3" style={{ marginBottom: 8 }}>{st.name}</h3>
-              <p className="t-small" style={{ marginBottom: 10, color: "var(--accent-ink)", fontFamily: "var(--mono)", letterSpacing: "0.08em" }}>
-                {st.time}
-              </p>
-              <p className="t-body" style={{ fontSize: "var(--fs-small)" }}>{st.desc}</p>
-              <div className="proc__deliv">
-                <span className="t-label t-label--dim">{lang === "en" ? "Deliverable" : "المخرَج"}</span>
-                {st.deliverable}
-              </div>
+              <span className="chip stage__time">{st.time}</span>
             </m.li>
           ))}
         </m.ol>

@@ -9,21 +9,21 @@ export function Problems() {
   const s = t.problems;
 
   return (
-    <section className="section section--line cv-auto" id="problems" aria-labelledby="problems-title">
+    <section className="section" id="problems" aria-labelledby="problems-title">
       <div className="container">
         <SectionHead id="problems-title" label={s.label} title={s.title} lead={s.lead} />
-        <m.div className="prob-grid" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={VIEW}>
+        <m.div className="problems-grid" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={VIEW}>
           {s.items.map((p) => (
-            <m.article key={p.pain} className="card card--hover prob" variants={child}>
-              <p className="prob__q">{p.pain}</p>
-              <p className="t-body">{p.detail}</p>
-              <div className="prob__fix">
-                <span className="prob__fix-ic" aria-hidden="true">
-                  <Icon name="fixArrow" size={17} flip />
-                </span>
+            <m.article key={p.pain} className="card card--pad card--hover corners" variants={child}>
+              <span className="corner-mark tl" aria-hidden="true" />
+              <span className="corner-mark br" aria-hidden="true" />
+              <p className="problem__pain">{p.pain}</p>
+              <p className="problem__detail">{p.detail}</p>
+              <div className="problem__fix">
+                <Icon name="fixArrow" size={18} />
                 <div>
-                  <p className="t-body" style={{ color: "var(--text)" }}>{p.fix}</p>
-                  <p className="t-label" style={{ marginTop: 10 }}>{p.pillar}</p>
+                  <p className="problem__fix-text">{p.fix}</p>
+                  <p className="t-label problem__pillar">{p.pillar}</p>
                 </div>
               </div>
             </m.article>

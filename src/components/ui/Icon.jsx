@@ -63,6 +63,22 @@ const PATHS = {
       <polyline points="15.5,3.5 19,7 15.5,10.5" />
     </>
   ),
+  arrowUpRight: (
+    <>
+      <line x1="7" y1="17" x2="17" y2="7" />
+      <polyline points="8,7 17,7 17,16" />
+    </>
+  ),
+  phone: (
+    <path d="M6.5 3.5h3l1.2 4-2 1.4a11 11 0 0 0 4.9 4.9l1.4-2 4 1.2v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z" />
+  ),
+  plus: (
+    <>
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <line x1="5" y1="12" x2="19" y2="12" />
+    </>
+  ),
+  minus: <line x1="5" y1="12" x2="19" y2="12" />,
 };
 
 // WhatsApp is a filled glyph, handled separately.

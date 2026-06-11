@@ -10,7 +10,7 @@ function initialTheme() {
   } catch {
     /* no-op */
   }
-  return "dark"; // brand rule: dark navy is the primary surface
+  return "light"; // brand rule: warm paper (light) is the primary identity
 }
 
 export function ThemeProvider({ children }) {

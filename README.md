@@ -1,15 +1,18 @@
 # Arkan AI Solutions — Landing Page
 
-Arabic-first (RTL) marketing site for Arkan AI Solutions. Outcome-first
-positioning: *Arkan turns fragmented operations into reliable, AI-enabled
-business systems.*
+Arabic-first (RTL) marketing site for Arkan AI Solutions. Positioning:
+**"The structure your operations run on."** / «البنية التي تقوم عليها عملياتك.»
+Design system: **"Atelier"** — warm technical minimalism (paper / ink / clay).
+See [`DESIGN.md`](DESIGN.md) for the full creative system.
 
 - **Stack:** React 19 + Vite 7, `motion` for animation, no CSS framework
   (hand-authored design tokens in `src/styles/`).
+- **Type:** dual-script — Bricolage Grotesque + Inter (EN), Reem Kufi + Readex
+  Pro (AR), all variable via Google Fonts.
 - **Languages:** Arabic (default) + English, switchable at runtime with full
   RTL/LTR handling. Arabic-first SEO in `index.html`.
-- **Themes:** Dark (brand default) + light, with a pre-paint boot script so the
-  first frame is already on-brand (no flash).
+- **Themes:** Light (brand default — warm paper) + a faithful warm-charcoal
+  dark inversion, with a pre-paint boot script so the first frame is on-brand.
 
 ## Run & build
 
@@ -104,8 +107,8 @@ src/
   App.jsx               app shell, providers, section composition
   config.js             env-driven site config (links, webhook)
   styles/
-    tokens.css          design tokens (Steel-Blue system, type scale)
-    base.css            base + component classes
+    tokens.css          design tokens ("Atelier" — paper/ink/clay, type scale)
+    base.css            base + component + section classes
   lib/                  theme, i18n, motion, analytics, lead submission
   content/              ar.js / en.js (all copy), index.js selector
   components/           Navbar, Footer, Logo, SystemDiagram, WhatsAppFab,

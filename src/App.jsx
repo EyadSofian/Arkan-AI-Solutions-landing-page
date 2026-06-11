@@ -10,6 +10,7 @@ import { WhatsAppFab } from "./components/WhatsAppFab.jsx";
 import { LeadModal } from "./components/LeadModal.jsx";
 
 import { Hero } from "./sections/Hero.jsx";
+import { Trust } from "./sections/Trust.jsx";
 import { Problems } from "./sections/Problems.jsx";
 import { Solutions } from "./sections/Solutions.jsx";
 import { Anatomy } from "./sections/Anatomy.jsx";
@@ -35,6 +36,7 @@ function Page() {
       <Navbar onBook={openLead} />
       <main id="main">
         <Hero onBook={openLead} />
+        <Trust />
         <Problems />
         <Solutions onBook={openLead} />
         <Anatomy onBook={openLead} />
